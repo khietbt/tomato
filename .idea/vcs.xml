@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/tomato.applications" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tomato.applications/tomato.applications.springbootadminserver" vcs="Git" />
   </component>
 </project>
