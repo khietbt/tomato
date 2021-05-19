@@ -6,7 +6,11 @@
 
     <groupId>microservices</groupId>
     <artifactId>tomato</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>tomato.applications</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>

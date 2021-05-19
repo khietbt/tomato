@@ -1,0 +1,3 @@
+[submodule "tomato.applications"]
+	path = tomato.applications
+	url = git@github.com:khietbt/tomato.applications.git
