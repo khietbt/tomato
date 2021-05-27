@@ -17,9 +17,11 @@
         <spring-boot-starter.version>2.4.5</spring-boot-starter.version>
         <spring-cloud.version>2020.0.2</spring-cloud.version>
         <spring-boot-admin.version>2.4.0</spring-boot-admin.version>
-        <java.version>1.8</java.version>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <project-reactor.version>2020.0.7</project-reactor.version>
+        <r2dbc-mysql.version>0.8.2.RELEASE</r2dbc-mysql.version>
+        <java.version>11</java.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 </project>
