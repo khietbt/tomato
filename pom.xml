@@ -14,15 +14,15 @@
     </modules>
 
     <properties>
-        <revision>1.0.0-RELEASE</revision>
-        <spring-boot.version>2.5.0</spring-boot.version>
-        <spring-cloud.version>2020.0.3</spring-cloud.version>
-        <spring-boot-admin.version>2.4.0</spring-boot-admin.version>
-        <project-reactor.version>2020.0.7</project-reactor.version>
-        <r2dbc-mysql.version>0.8.2.RELEASE</r2dbc-mysql.version>
         <java.version>16</java.version>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
+        <project-reactor.version>2020.0.7</project-reactor.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <r2dbc-mysql.version>0.8.2.RELEASE</r2dbc-mysql.version>
+        <revision>1.0.0-RELEASE</revision>
+        <spring-boot-admin.version>2.4.0</spring-boot-admin.version>
+        <spring-boot.version>2.5.0</spring-boot.version>
+        <spring-cloud.version>2020.0.3</spring-cloud.version>
     </properties>
 </project>
