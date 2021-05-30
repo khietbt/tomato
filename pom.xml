@@ -8,20 +8,21 @@
     <artifactId>tomato</artifactId>
     <packaging>pom</packaging>
     <version>${revision}</version>
+
     <modules>
         <module>tomato.applications</module>
     </modules>
 
     <properties>
         <revision>1.0.0-RELEASE</revision>
-        <spring-boot-starter.version>2.4.5</spring-boot-starter.version>
-        <spring-cloud.version>2020.0.2</spring-cloud.version>
+        <spring-boot.version>2.5.0</spring-boot.version>
+        <spring-cloud.version>2020.0.3</spring-cloud.version>
         <spring-boot-admin.version>2.4.0</spring-boot-admin.version>
         <project-reactor.version>2020.0.7</project-reactor.version>
         <r2dbc-mysql.version>0.8.2.RELEASE</r2dbc-mysql.version>
-        <java.version>11</java.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <java.version>16</java.version>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 </project>
