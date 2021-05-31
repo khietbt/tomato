@@ -6,6 +6,7 @@
 
     <groupId>microservices</groupId>
     <artifactId>tomato</artifactId>
+    <name>${project.artifactId}</name>
     <packaging>pom</packaging>
     <version>${revision}</version>
 
