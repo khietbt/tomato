@@ -2,6 +2,20 @@
 
 A walk on microservices.
 
+## Hierarchy
+
+```text
+tomato
+\__ tomato.applications
+|        \__ tomato.applications.adminservice
+|        \__ tomato.applications.configservice
+|        \__ tomato.applications.eurekaservice
+|        \__ tomato.applications.gatewayservice
+|        \__ tomato.applications.productservice
+|        \__ tomato.applications.userservice
+\__ tomato.configurations
+```
+
 ## Clone
 
 * git clone --recursive git@github.com:khietbt/tomato.git

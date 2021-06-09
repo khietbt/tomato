@@ -12,6 +12,7 @@
 
     <modules>
         <module>tomato.applications</module>
+        <module>tomato.configurations</module>
     </modules>
 
     <properties>
@@ -26,4 +27,39 @@
         <spring-boot.version>2.5.0</spring-boot.version>
         <spring-cloud.version>2020.0.3</spring-cloud.version>
     </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.qunix</groupId>
+                <artifactId>structure-maven-plugin</artifactId>
+                <version>0.0.2</version>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>
+                                modules
+                            </goal>
+                            <goal>
+                                files
+                            </goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <ignores>
+                        <ignore>target.*</ignore>
+                        <ignore>\.settings.*</ignore>
+                        <ignore>\.project.*</ignore>
+                        <ignore>\.classpath.*</ignore>
+                        <ignore>\.git.*</ignore>
+                        <ignore>\.idea.*</ignore>
+                        <ignore>\.factorypath.*</ignore>
+                        <ignore>.*.iml</ignore>
+                    </ignores>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
