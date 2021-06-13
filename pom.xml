@@ -26,6 +26,8 @@
         <spring-boot-admin.version>2.4.0</spring-boot-admin.version>
         <spring-boot.version>2.5.0</spring-boot.version>
         <spring-cloud.version>2020.0.3</spring-cloud.version>
+        <liquibase.version>4.3.5</liquibase.version>
+        <config-server.uri>http://localhost:8888</config-server.uri>
     </properties>
     <build>
         <plugins>
