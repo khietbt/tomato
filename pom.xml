@@ -33,6 +33,8 @@
         <config-service.username>username</config-service.username>
         <config-service.password>password</config-service.password>
         <config-service.port>8888</config-service.port>
+        <config-service.db.username>username</config-service.db.username>
+        <config-service.db.password>password</config-service.db.password>
     </properties>
     <build>
         <plugins>
