@@ -27,7 +27,12 @@
         <spring-boot.version>2.5.0</spring-boot.version>
         <spring-cloud.version>2020.0.3</spring-cloud.version>
         <liquibase.version>4.3.5</liquibase.version>
-        <config-server.uri>http://localhost:8888</config-server.uri>
+        <git-commit-id-plugin.version>4.0.5</git-commit-id-plugin.version>
+        <!-- CONFIG SERVICE -->
+        <config-service.uri>http://localhost:8888</config-service.uri>
+        <config-service.username>username</config-service.username>
+        <config-service.password>password</config-service.password>
+        <config-service.port>8888</config-service.port>
     </properties>
     <build>
         <plugins>

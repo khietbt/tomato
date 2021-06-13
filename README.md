@@ -62,8 +62,8 @@ Here, actuator entries are protected by spring-boot-starter-security with a sett
 spring:
   security:
     user:
-      name: ${CONFIG_SERVER_USERNAME:username}
-      password: ${CONFIG_SERVER_PASSWORD:password}
+      name: ${CONFIG_SERVICE_USERNAME:username}
+      password: ${CONFIG_SERVICE_PASSWORD:password}
 ```
 
 Please note that this setting affects other endpoints.
