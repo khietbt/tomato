@@ -9,7 +9,7 @@ tomato
 \__ tomato.applications
 |        \__ tomato.applications.adminservice
 |        \__ tomato.applications.configservice
-|        \__ tomato.applications.eurekaservice
+|        \__ tomato.applications.discoveryservice
 |        \__ tomato.applications.gatewayservice
 |        \__ tomato.applications.productservice
 |        \__ tomato.applications.userservice
