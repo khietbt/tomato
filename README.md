@@ -68,6 +68,10 @@ spring:
 
 Please note that this setting affects other endpoints.
 
+### Tracing
+
+TraceId is put into log lines using spring-boot-starter-sleuth.
+
 ## References
 
 * SpringBoot v2.5.0
