@@ -11,7 +11,7 @@
     <version>${revision}</version>
 
     <modules>
-        <module>tomato.applications</module>
+        <module>tomato.backends</module>
         <module>tomato.configurations</module>
     </modules>
 
@@ -29,7 +29,7 @@
         <liquibase.version>4.3.5</liquibase.version>
         <git-commit-id-plugin.version>4.0.5</git-commit-id-plugin.version>
         <!-- CONFIG SERVICE -->
-        <config-service.name>tomato.applications.configservice</config-service.name>
+        <config-service.name>tomato.backends.configservice</config-service.name>
         <config-service.uri>http://localhost:8888</config-service.uri>
         <config-service.username>username</config-service.username>
         <config-service.password>password</config-service.password>

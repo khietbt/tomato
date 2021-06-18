@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: 000001_create_table_products
+      author: khietbt
+      comment: Creating the first table products
+      changes:
+        - createTable:
+            tableName: products
+            columns:
+              - column:
+                  name: id
+                  type: varchar(64)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    primaryKeyName: pk_products
+              - column:
+                  name: created_by
+                  type: varchar(1024)
+              - column:
+                  name: created_at
+                  type: datetime
+              - column:
+                  name: updated_by
+                  type: varchar(1024)
+              - column:
+                  name: updated_at
+                  type: datetime
+              - column:
+                  name: code
+                  type: varchar(64)
+                  constraints:
+                    nullable: false
+                    unique: true
+                    uniqueConstraintName: idx_products_1
+              - column:
+                  name: name
+                  type: varchar(512)
+                  constraints:
+                    nullable: false
+                    unique: true
+                    uniqueConstraintName: idx_products_2
+              - column:
+                  name: description
+                  type: text

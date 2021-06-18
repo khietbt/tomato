@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 000002_insert_data_into_properties
+      author: khietbt
+      comment: Initializing data for the table properties
+      changes:
+        - insert:
+            tableName: properties
+            columns:
+              - column:
+                  name: key
+                  value: size
+              - column:
+                  name: value
+                  value: "20"
+              - column:
+                  name: application
+                  value: tomato.backends.productservice
+              - column:
+                  name: profile
+                  value: default
+              - column:
+                  name: label
+                  value: master

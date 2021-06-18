@@ -6,13 +6,13 @@ A walk on microservices.
 
 ```text
 tomato
-\__ tomato.applications
-|        \__ tomato.applications.adminservice
-|        \__ tomato.applications.configservice
-|        \__ tomato.applications.discoveryservice
-|        \__ tomato.applications.gatewayservice
-|        \__ tomato.applications.productservice
-|        \__ tomato.applications.userservice
+\__ tomato.backends
+|        \__ tomato.backends.adminservice
+|        \__ tomato.backends.configservice
+|        \__ tomato.backends.discoveryservice
+|        \__ tomato.backends.gatewayservice
+|        \__ tomato.backends.productservice
+|        \__ tomato.backends.userservice
 \__ tomato.configurations
 ```
 

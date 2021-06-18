@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: @project.name@
+  cloud:
+    config:
+      uri: ${CONFIG_SERVICE_URI:@config-service.uri@}
+      username: ${CONFIG_SERVICE_USERNAME:@config-service.username@}
+      password: ${CONFIG_SERVICE_PASSWORD:@config-service.password@}
+      fail-fast: true
+server:
+  port: 8762
+eureka:
+  server:
+    wait-time-in-ms-when-sync-empty: 0
+    renewal-percent-threshold: 0.85
+info:
+  app:
+    name: ${spring.application.name}
+    encoding: "@project.build.sourceEncoding@"
+    java:
+      source: "@java.version@"
+      target: "@java.version@"

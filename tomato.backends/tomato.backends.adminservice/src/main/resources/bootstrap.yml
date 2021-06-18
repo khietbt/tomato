@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: "@project.name@"
+  cloud:
+    config:
+      uri: ${CONFIG_SERVICE_URI:@config-service.uri@}
+      username: ${CONFIG_SERVICE_USERNAME:@config-service.username@}
+      password: ${CONFIG_SERVICE_PASSWORD:@config-service.password@}
+      fail-fast: true
+  boot:
+    admin:
+      instance-auth:
+        default-password: password
+        default-user-name: username
+        enabled: true
+server:
+  port: 8765
+info:
+  app:
+    name: ${spring.application.name}
+    encoding: "@project.build.sourceEncoding@"
+    java:
+      source: "@java.version@"
+      target: "@java.version@"

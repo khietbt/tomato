@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: tomato.backends.productservice
+  datasource:
+    url: jdbc:mysql://localhost/productservice?createDatabaseIfNotExist=true&characterEncoding=utf8
+    username: lika_dev
+    password: Vuanh090317
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+  cloud:
+    config:
+      uri: ${CONFIG_SERVICE_URI:@config-service.uri@}
+      username: ${CONFIG_SERVICE_USERNAME:@config-service.username@}
+      password: ${CONFIG_SERVICE_PASSWORD:@config-service.password@}
+      fail-fast: true
+server:
+  port: 8081
+info:
+  app:
+    name: ${spring.application.name}
+    encoding: "@project.build.sourceEncoding@"
+    java:
+      source: "@java.version@"
+      target: "@java.version@"

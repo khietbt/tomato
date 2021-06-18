@@ -1,8 +1,0 @@
-[submodule "tomato.applications"]
-	path = tomato.applications
-	url = git@github.com:khietbt/tomato.applications.git
-	branch = master
-[submodule "tomato.configurations"]
-	path = tomato.configurations
-	url = git@github.com:khietbt/tomato.configurations.git
-	branch = master

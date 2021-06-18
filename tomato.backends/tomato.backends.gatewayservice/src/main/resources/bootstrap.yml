@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: @project.name@
+  cloud:
+    gateway:
+      routes:
+        - id: tomato.backends.productservice
+          uri: lb://tomato.backends.productservice
+          predicates:
+            - Path=/productservice/**
+          filters:
+            - RewritePath=/productservice/(?<segment>.*), //$\{segment}
+    config:
+      uri: ${CONFIG_SERVICE_URI:@config-service.uri@}
+      username: ${CONFIG_SERVICE_USERNAME:@config-service.username@}
+      password: ${CONFIG_SERVICE_PASSWORD:@config-service.password@}
+      fail-fast: true
+  sleuth:
+    reactor:
+      enabled: true
+      instrumentation-type: decorate_on_each
+server:
+  port: 8090
+info:
+  app:
+    name: ${spring.application.name}
+    encoding: "@project.build.sourceEncoding@"
+    java:
+      source: "@java.version@"
+      target: "@java.version@"
