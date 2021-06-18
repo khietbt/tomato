@@ -1,0 +1,4 @@
+rootProject.name = "tomato"
+
+include "tomato.backends"
+include "tomato.backends:tomato.backends.configservice"

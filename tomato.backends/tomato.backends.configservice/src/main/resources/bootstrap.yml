@@ -1,10 +1,10 @@
 spring:
   application:
-    name: "@config-service.name@"
+    name: tomato.backends.configservice
   datasource:
     url: ${CONFIG_SERVICE_DB_URL:jdbc:mysql://localhost/configservice?createDatabaseIfNotExist=true&characterEncoding=utf8}
-    username: ${CONFIG_SERVICE_DB_USERNAME:@config-service.db.username@}
-    password: ${CONFIG_SERVICE_DB_PASSWORD:@config-service.db.password@}
+    username: ${CONFIG_SERVICE_DB_USERNAME:username}
+    password: ${CONFIG_SERVICE_DB_PASSWORD:password}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     generate-ddl: false
@@ -17,9 +17,10 @@ spring:
       fail-fast: true
       server:
         git:
-          uri: ${CONFIG_SERVICE_GIT_URI:git@github.com:khietbt/tomato.configurations.git}
+          uri: ${CONFIG_SERVICE_GIT_URI:git@github.com:khietbt/tomato.git}
 #          private-key: /path/to/private-key
           order: 1
+          search-paths: tomato.configurations
         jdbc:
           sql: "SELECT p.key, p.value FROM properties p WHERE p.application=? AND p.profile=? AND p.label=?"
           order: 2
@@ -30,7 +31,7 @@ spring:
   profiles:
     active: jdbc, git
 server:
-  port: ${CONFIG_SERVICE_PORT:@config-service.port@}
+  port: ${CONFIG_SERVICE_PORT:8888}
 info:
   app:
     name: ${spring.application.name}
