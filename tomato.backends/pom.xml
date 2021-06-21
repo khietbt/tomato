@@ -16,7 +16,7 @@
     <modules>
         <module>tomato.backends.adminservice</module>
         <module>tomato.backends.configservice</module>
-<!--        <module>tomato.backends.discoveryservice</module>-->
+        <module>tomato.backends.discoveryservice</module>
 <!--        <module>tomato.backends.gatewayservice</module>-->
 <!--        <module>tomato.backends.productservice</module>-->
 <!--        <module>tomato.backends.adminservice</module>-->

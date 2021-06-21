@@ -3,7 +3,7 @@ eureka:
     healthcheck:
       enabled: true
     service-url:
-      defaultZone: http://localhost:8762/eureka
+      defaultZone: http://username:password@localhost:8762/eureka
   instance:
     prefer-ip-address: false
 management:

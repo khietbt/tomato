@@ -1,11 +1,11 @@
 spring:
   application:
-    name: @project.name@
+    name: tomato.backends.discoveryservice
   cloud:
     config:
-      uri: ${CONFIG_SERVICE_URI:@config-service.uri@}
-      username: ${CONFIG_SERVICE_USERNAME:@config-service.username@}
-      password: ${CONFIG_SERVICE_PASSWORD:@config-service.password@}
+      uri: ${CONFIG_SERVICE_URI:http://localhost:8888}
+      username: ${CONFIG_SERVICE_USERNAME:username}
+      password: ${CONFIG_SERVICE_PASSWORD:password}
       fail-fast: true
 server:
   port: 8762
