@@ -3,7 +3,7 @@ eureka:
     healthcheck:
       enabled: true
     service-url:
-      defaultZone: http://username:password@localhost:8762/eureka
+      defaultZone: http://localhost:8762/eureka
   instance:
     prefer-ip-address: false
 management:
@@ -15,15 +15,3 @@ management:
   info:
     git:
       mode: FULL
-spring:
-  security:
-    user:
-      name: ${CONFIG_SERVICE_USERNAME:username}
-      password: ${CONFIG_SERVICE_PASSWORD:password}
-  boot:
-    admin:
-      client:
-        instance:
-          user:
-            name: ${spring.security.user.name}
-            password: ${spring.security.user.password}
