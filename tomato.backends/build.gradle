@@ -1,0 +1,48 @@
+buildscript {
+     ext {
+          springBootVersion = '2.5.0'
+          springManagementVersion = '1.0.11.RELEASE'
+     }
+
+     repositories {
+          mavenCentral()
+          mavenLocal()
+     }
+
+     dependencies {
+          classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+          classpath "io.spring.gradle:dependency-management-plugin:${springManagementVersion}"
+     }
+}
+subprojects {
+     apply plugin: 'java'
+     apply plugin: 'io.spring.dependency-management'
+     apply plugin: 'org.springframework.boot'
+
+     sourceCompatibility = JavaVersion.VERSION_16
+     targetCompatibility = JavaVersion.VERSION_16
+
+     def springCloudVersion = '2020.0.3'
+
+     repositories {
+          mavenCentral()
+     }
+
+     compileJava.dependsOn(processResources)
+
+     configurations {
+          compileOnly {
+               extendsFrom annotationProcessor
+          }
+     }
+
+     test {
+          useJUnitPlatform()
+     }
+
+     dependencyManagement {
+          imports {
+               mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+          }
+     }
+}
