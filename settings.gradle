@@ -1,4 +1,8 @@
 rootProject.name = "tomato"
 
-include "tomato.backends"
-include "tomato.backends:tomato.backends.configservice"
+fileTree('.') {
+    include '**/build.gradle'
+    exclude 'build.gradle'
+}.forEach() {
+    include relativePath(it.parent).replace(File.separator, ':')
+}
