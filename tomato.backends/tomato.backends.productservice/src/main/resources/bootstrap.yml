@@ -13,9 +13,7 @@ spring:
     open-in-view: false
   cloud:
     config:
-      uri: ${CONFIG_SERVICE_URI:@config-service.uri@}
-      username: ${CONFIG_SERVICE_USERNAME:@config-service.username@}
-      password: ${CONFIG_SERVICE_PASSWORD:@config-service.password@}
+      uri: ${CONFIG_SERVICE_URI:http://localhost:8888}
       fail-fast: true
 server:
   port: 8081
