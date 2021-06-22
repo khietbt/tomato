@@ -15,3 +15,8 @@ management:
   info:
     git:
       mode: FULL
+spring:
+  security:
+    user:
+      name: username
+      password: password

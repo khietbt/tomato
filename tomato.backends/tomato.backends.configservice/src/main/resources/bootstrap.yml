@@ -15,6 +15,8 @@ spring:
   cloud:
     config:
       fail-fast: true
+      username: username
+      password: password
       server:
         git:
           uri: ${CONFIG_SERVICE_GIT_URI:git@github.com:khietbt/tomato.git}
@@ -30,10 +32,6 @@ spring:
 #    change-log: classpath:/db/changelog/db.changelog-master.yaml
   profiles:
     active: jdbc, git
-  security:
-    user:
-      name: username
-      password: password
 server:
   port: ${CONFIG_SERVICE_PORT:8888}
 info:
