@@ -34,10 +34,3 @@ spring:
     active: jdbc, git
 server:
   port: ${CONFIG_SERVICE_PORT:8888}
-info:
-  app:
-    name: ${spring.application.name}
-    encoding: "@project.build.sourceEncoding@"
-    java:
-      source: "@java.version@"
-      target: "@java.version@"

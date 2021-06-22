@@ -19,10 +19,3 @@ spring:
       password: password
 server:
   port: 8081
-info:
-  app:
-    name: ${spring.application.name}
-    encoding: "@project.build.sourceEncoding@"
-    java:
-      source: "@java.version@"
-      target: "@java.version@"

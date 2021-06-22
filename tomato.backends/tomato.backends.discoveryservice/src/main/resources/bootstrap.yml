@@ -13,10 +13,3 @@ eureka:
   server:
     wait-time-in-ms-when-sync-empty: 0
     renewal-percent-threshold: 0.85
-info:
-  app:
-    name: ${spring.application.name}
-    encoding: "@project.build.sourceEncoding@"
-    java:
-      source: "@java.version@"
-      target: "@java.version@"
