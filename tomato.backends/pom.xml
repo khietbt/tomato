@@ -20,6 +20,7 @@
         <module>tomato.backends.gatewayservice</module>
         <module>tomato.backends.productservice</module>
         <module>tomato.backends.userservice</module>
+        <module>tomato.backends.websocketservice</module>
     </modules>
 
     <dependencies>
