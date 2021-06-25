@@ -3,9 +3,9 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>tomato.backends.userservice</artifactId>
+    <artifactId>tomato.backends.websocketclient</artifactId>
     <name>${project.artifactId}</name>
-    <description>User Service Application</description>
+    <description>Web Socket Client Application</description>
 
     <parent>
         <artifactId>tomato.backends</artifactId>
@@ -46,7 +46,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${springBootVersion}</version>
                 <configuration>
-                    <mainClass>tomato.backends.userservice.WebSocketServiceApplication</mainClass>
+                    <mainClass>tomato.backends.websocketclient.websocketclientApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
