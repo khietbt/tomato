@@ -1,8 +1,15 @@
 package tomato.plugins.stompsampler;
 
-public class StompSamplerProperties {
-    private static final String PREFIX = "STOMP_SAMPLER_PROPERTIES.";
-    public static final String URI = PREFIX + "URI";
-    public static final String SUBSCRIPTION_CHANNEL = PREFIX + "SUBSCRIPTION_CHANNEL";
-    public static final String MESSAGE = PREFIX + "MESSAGE";
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
+public enum StompSamplerProperties {
+    URI("STOMP_SAMPLER_PROPERTIES.URI", "Uri:"),
+    SUBSCRIPTION_CHANNEL("STOMP_SAMPLER_PROPERTIES.SUBSCRIPTION_CHANNEL", "Subscription channel:"),
+    MESSAGE("STOMP_SAMPLER_PROPERTIES.MESSAGE", "Message:");
+
+    private final String id;
+    private final String label;
 }

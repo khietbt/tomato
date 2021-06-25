@@ -37,16 +37,14 @@ public class StompSamplerGui extends AbstractSamplerGui {
         panel.setLayout(layout);
 
         /**/
-        JLabel txtUri = new JLabel("Hostname");
+        JLabel txtUri = new JLabel(StompSamplerProperties.URI.getLabel());
         txtUri.setLabelFor(this.txtUri);
 
-        JLabel lblSubscriptionChannel = new JLabel("Subscription channel");
+        JLabel lblSubscriptionChannel = new JLabel(StompSamplerProperties.SUBSCRIPTION_CHANNEL.getLabel());
         lblSubscriptionChannel.setLabelFor(txtSubscriptionChannel);
 
-        JLabel lblMessage = new JLabel("Message");
+        JLabel lblMessage = new JLabel(StompSamplerProperties.MESSAGE.getLabel());
         lblMessage.setLabelFor(txtMessage);
-
-        JLabel responseCodeLabel = new JLabel("Response Code");
 
         layout.setHorizontalGroup(
                 layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -58,13 +56,13 @@ public class StompSamplerGui extends AbstractSamplerGui {
                         )
                         .addGroup(
                                 layout.createSequentialGroup()
-                                        .addComponent(lblMessage)
+                                        .addComponent(lblSubscriptionChannel)
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtSubscriptionChannel)
                         )
                         .addGroup(
                                 layout.createSequentialGroup()
-                                        .addComponent(responseCodeLabel)
+                                        .addComponent(lblMessage)
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtMessage)
                         )
@@ -94,7 +92,7 @@ public class StompSamplerGui extends AbstractSamplerGui {
                         .addGroup(
                                 layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addComponent(
-                                                lblMessage,
+                                                lblSubscriptionChannel,
                                                 GroupLayout.PREFERRED_SIZE,
                                                 GroupLayout.PREFERRED_SIZE,
                                                 GroupLayout.PREFERRED_SIZE
@@ -109,7 +107,7 @@ public class StompSamplerGui extends AbstractSamplerGui {
                         .addGroup(
                                 layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addComponent(
-                                                responseCodeLabel,
+                                                lblMessage,
                                                 GroupLayout.PREFERRED_SIZE,
                                                 GroupLayout.PREFERRED_SIZE,
                                                 GroupLayout.PREFERRED_SIZE
