@@ -3,20 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <modules>
+        <module>tomato.plugins.stompsampler</module>
+    </modules>
 
-    <groupId>microservices</groupId>
-    <artifactId>tomato</artifactId>
+    <parent>
+        <artifactId>tomato</artifactId>
+        <groupId>microservices</groupId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>tomato.plugins</artifactId>
     <name>${project.artifactId}</name>
     <packaging>pom</packaging>
-    <version>${revision}</version>
-
-    <properties>
-        <revision>1.0.0-RELEASE</revision>
-    </properties>
-
-    <modules>
-        <module>tomato.backends</module>
-        <module>tomato.configurations</module>
-        <module>tomato.plugins</module>
-    </modules>
+    <description>Some crazy things</description>
 </project>
