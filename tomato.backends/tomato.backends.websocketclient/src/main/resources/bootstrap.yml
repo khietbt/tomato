@@ -1,11 +1,6 @@
 spring:
   application:
-    name: tomato.backends.userservice
-  datasource:
-    url: jdbc:mysql://localhost/productservice?createDatabaseIfNotExist=true&characterEncoding=utf8
-    username: lika_dev
-    password: Vuanh090317
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: tomato.backends.websocketclient
   jpa:
     generate-ddl: false
     hibernate:
@@ -13,11 +8,12 @@ spring:
     open-in-view: false
   cloud:
     config:
-      uri: ${CONFIG_SERVICE_URI:http://localhost:8888}
-      fail-fast: true
-      username: username
-      password: password
+      enabled: false
+      discovery:
+        enabled: false
   liquibase:
     enabled: false
+  main:
+    web-application-type: none
 server:
-  port: 8082
+  port: 8079

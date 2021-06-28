@@ -109,3 +109,4 @@ target/
 build
 gradlew*
 gradle
+dependency-reduced-pom.xml
