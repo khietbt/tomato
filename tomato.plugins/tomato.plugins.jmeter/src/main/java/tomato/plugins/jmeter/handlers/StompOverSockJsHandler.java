@@ -13,7 +13,9 @@ import java.lang.reflect.Type;
 public class StompOverSockJsHandler extends StompSessionHandlerAdapter {
     private final String uri;
 
-    public StompOverSockJsHandler(String uri) {
+    public StompOverSockJsHandler(
+            String uri
+    ) {
         super();
 
         this.uri = uri;

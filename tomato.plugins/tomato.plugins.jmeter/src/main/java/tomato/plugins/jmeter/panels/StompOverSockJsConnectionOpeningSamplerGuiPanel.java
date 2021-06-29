@@ -17,7 +17,7 @@ public class StompOverSockJsConnectionOpeningSamplerGuiPanel extends JPanel {
 
     private void initComponents() {
         uri = new JTextField();
-        GuiUtils.createPlaceHolder(StompOverSockJsConnectionOpeningSamplerGuiPanelProperties.URI.getPlaceHolder(), uri);
+        GuiUtils.addPlaceHolder(StompOverSockJsConnectionOpeningSamplerGuiPanelProperties.URI.getPlaceHolder(), uri);
 
         setBorder(BorderFactory.createTitledBorder("Settings"));
         setLayout(createLayout());
