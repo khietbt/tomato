@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum UriPanelProperties {
+public enum StompOverSockJsConnectionOpeningSamplerGuiPanelProperties {
     URI("Uri (*):", "Eg: http://localhost:8082/ws?access_token=xxx");
 
     private final String label;

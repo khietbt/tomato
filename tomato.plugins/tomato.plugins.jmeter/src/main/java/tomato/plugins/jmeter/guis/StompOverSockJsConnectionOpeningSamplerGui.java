@@ -3,28 +3,27 @@ package tomato.plugins.jmeter.guis;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.jmeter.samplers.gui.AbstractSamplerGui;
 import org.apache.jmeter.testelement.TestElement;
-import tomato.plugins.jmeter.panels.UriPanel;
+import tomato.plugins.jmeter.panels.StompOverSockJsConnectionOpeningSamplerGuiPanel;
 import tomato.plugins.jmeter.samplers.StompOverSockJsConnectionOpeningSampler;
 
 import java.awt.*;
 
 @Slf4j
 public class StompOverSockJsConnectionOpeningSamplerGui extends AbstractSamplerGui {
-    private UriPanel uriPanel;
+    private StompOverSockJsConnectionOpeningSamplerGuiPanel stompOverSockJsConnectionOpeningSamplerGuiPanel;
 
     public StompOverSockJsConnectionOpeningSamplerGui() {
         initComponents();
+    }
+
+    private void initComponents() {
+        stompOverSockJsConnectionOpeningSamplerGuiPanel = new StompOverSockJsConnectionOpeningSamplerGuiPanel();
 
         setLayout(new BorderLayout());
         setBorder(makeBorder());
 
         add(makeTitlePanel(), BorderLayout.NORTH);
-
-        add(uriPanel, BorderLayout.CENTER);
-    }
-
-    private void initComponents() {
-        uriPanel = new UriPanel();
+        add(stompOverSockJsConnectionOpeningSamplerGuiPanel, BorderLayout.CENTER);
     }
 
     /**
@@ -40,7 +39,7 @@ public class StompOverSockJsConnectionOpeningSamplerGui extends AbstractSamplerG
      */
     @Override
     public String getLabelResource() {
-        return "Stomp Over SockJS Connection Opening Sampler";
+        return "Stomp Over SockJs Connection Opening Sampler";
     }
 
     @Override
@@ -108,7 +107,7 @@ public class StompOverSockJsConnectionOpeningSamplerGui extends AbstractSamplerG
         super.configureTestElement(element);
 
         if (element instanceof StompOverSockJsConnectionOpeningSampler stompOverSockJsConnectionOpeningSampler) {
-            stompOverSockJsConnectionOpeningSampler.setUri(uriPanel.getUri().getText());
+            stompOverSockJsConnectionOpeningSampler.setUri(stompOverSockJsConnectionOpeningSamplerGuiPanel.getUri().getText());
         }
     }
 

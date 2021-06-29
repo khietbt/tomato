@@ -6,7 +6,7 @@ import org.apache.jmeter.samplers.AbstractSampler;
 import org.apache.jmeter.samplers.Entry;
 import org.apache.jmeter.samplers.SampleResult;
 import tomato.plugins.jmeter.clients.StompOverSockJsClient;
-import tomato.plugins.jmeter.properties.UriPanelProperties;
+import tomato.plugins.jmeter.properties.StompOverSockJsConnectionOpeningSamplerGuiPanelProperties;
 
 @Slf4j
 public class StompOverSockJsConnectionOpeningSampler extends AbstractSampler {
@@ -67,10 +67,10 @@ public class StompOverSockJsConnectionOpeningSampler extends AbstractSampler {
     }
 
     public String getUri() {
-        return getPropertyAsString(UriPanelProperties.URI.name());
+        return getPropertyAsString(StompOverSockJsConnectionOpeningSamplerGuiPanelProperties.URI.name());
     }
 
     public void setUri(String uri) {
-        setProperty(UriPanelProperties.URI.name(), uri);
+        setProperty(StompOverSockJsConnectionOpeningSamplerGuiPanelProperties.URI.name(), uri);
     }
 }
