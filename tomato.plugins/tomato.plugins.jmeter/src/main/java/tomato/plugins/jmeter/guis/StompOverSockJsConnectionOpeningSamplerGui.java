@@ -9,10 +9,10 @@ import tomato.plugins.jmeter.samplers.StompOverSockJsConnectionOpeningSampler;
 import java.awt.*;
 
 @Slf4j
-public class StompOverSockJsConnectionOpeningGui extends AbstractSamplerGui {
+public class StompOverSockJsConnectionOpeningSamplerGui extends AbstractSamplerGui {
     private UriPanel uriPanel;
 
-    public StompOverSockJsConnectionOpeningGui() {
+    public StompOverSockJsConnectionOpeningSamplerGui() {
         initComponents();
 
         setLayout(new BorderLayout());
