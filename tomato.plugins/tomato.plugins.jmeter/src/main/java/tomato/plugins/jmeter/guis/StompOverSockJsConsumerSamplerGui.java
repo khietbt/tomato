@@ -3,28 +3,28 @@ package tomato.plugins.jmeter.guis;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.jmeter.samplers.gui.AbstractSamplerGui;
 import org.apache.jmeter.testelement.TestElement;
-import tomato.plugins.jmeter.panels.StompOverSockJsConnectionSubscriptionSamplerGuiPanel;
+import tomato.plugins.jmeter.panels.StompOverSockJsConsumerSamplerGuiPanel;
 import tomato.plugins.jmeter.samplers.StompOverSockJsConnectionOpeningSampler;
-import tomato.plugins.jmeter.samplers.StompOverSockJsConnectionSubscriptionSampler;
+import tomato.plugins.jmeter.samplers.StompOverSockJsConsumerSampler;
 
 import java.awt.*;
 
 @Slf4j
-public class StompOverSockJsConnectionSubscriptionSamplerGui extends AbstractSamplerGui {
-    private StompOverSockJsConnectionSubscriptionSamplerGuiPanel stompOverSockJsConnectionSubscriptionSamplerGuiPanel;
+public class StompOverSockJsConsumerSamplerGui extends AbstractSamplerGui {
+    private StompOverSockJsConsumerSamplerGuiPanel stompOverSockJsConsumerSamplerGuiPanel;
 
-    public StompOverSockJsConnectionSubscriptionSamplerGui() {
+    public StompOverSockJsConsumerSamplerGui() {
         initComponents();
     }
 
     private void initComponents() {
-        stompOverSockJsConnectionSubscriptionSamplerGuiPanel = new StompOverSockJsConnectionSubscriptionSamplerGuiPanel();
+        stompOverSockJsConsumerSamplerGuiPanel = new StompOverSockJsConsumerSamplerGuiPanel();
 
         setLayout(new BorderLayout());
         setBorder(makeBorder());
 
         add(makeTitlePanel(), BorderLayout.NORTH);
-        add(stompOverSockJsConnectionSubscriptionSamplerGuiPanel, BorderLayout.CENTER);
+        add(stompOverSockJsConsumerSamplerGuiPanel, BorderLayout.CENTER);
     }
 
     /**
@@ -107,15 +107,15 @@ public class StompOverSockJsConnectionSubscriptionSamplerGui extends AbstractSam
     public void modifyTestElement(TestElement element) {
         super.configureTestElement(element);
 
-        if (element instanceof StompOverSockJsConnectionSubscriptionSampler stompOverSockJsConnectionSubscriptionSampler) {
-            stompOverSockJsConnectionSubscriptionSampler.setUri(
-                    stompOverSockJsConnectionSubscriptionSamplerGuiPanel.getUri().getText()
+        if (element instanceof StompOverSockJsConsumerSampler stompOverSockJsConsumerSampler) {
+            stompOverSockJsConsumerSampler.setUri(
+                    stompOverSockJsConsumerSamplerGuiPanel.getUri().getText()
             );
-            stompOverSockJsConnectionSubscriptionSampler.setSubscriptionChannel(
-                    stompOverSockJsConnectionSubscriptionSamplerGuiPanel.getSubscriptionChannel().getText()
+            stompOverSockJsConsumerSampler.setChannel(
+                    stompOverSockJsConsumerSamplerGuiPanel.getChannel().getText()
             );
-            stompOverSockJsConnectionSubscriptionSampler.setTimeout(
-                    (int) stompOverSockJsConnectionSubscriptionSamplerGuiPanel.getTimeout().getValue()
+            stompOverSockJsConsumerSampler.setTimeout(
+                    (int) stompOverSockJsConsumerSamplerGuiPanel.getTimeout().getValue()
             );
         }
     }

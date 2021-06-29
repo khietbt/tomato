@@ -6,11 +6,11 @@ import org.apache.jmeter.samplers.AbstractSampler;
 import org.apache.jmeter.samplers.Entry;
 import org.apache.jmeter.samplers.SampleResult;
 import tomato.plugins.jmeter.clients.StompOverSockJsClient;
-import tomato.plugins.jmeter.properties.StompOverSockJsConnectionSubscriptionSamplerGuiPanelProperties;
+import tomato.plugins.jmeter.properties.StompOverSockJsConsumerSamplerGuiPanelProperties;
 
 @Slf4j
 @SuppressWarnings("unused")
-public class StompOverSockJsConnectionSubscriptionSampler extends AbstractSampler {
+public class StompOverSockJsProducerSampler extends AbstractSampler {
     /**
      * Obtains statistics about the given Entry, and packages the information
      * into a SampleResult.
@@ -28,8 +28,7 @@ public class StompOverSockJsConnectionSubscriptionSampler extends AbstractSample
         result.sampleStart();
 
         final String uri = getUri();
-        final String subscriptionChannel = getSubscriptionChannel();
-        final int timeout = getTimeout();
+        final String subscriptionChannel = getChannel();
 
         if (StringUtils.isBlank(uri)) {
             result.setResponseCode("400");
@@ -46,7 +45,6 @@ public class StompOverSockJsConnectionSubscriptionSampler extends AbstractSample
 
             result.setResponseMessage("Connected successfully!");
             result.setSuccessful(true);
-
         } catch (IllegalArgumentException exception) {
             result.setResponseMessage("Wrong TCP scheme, it must be HTTP/HTTPS");
             result.setSuccessful(false);
@@ -70,26 +68,18 @@ public class StompOverSockJsConnectionSubscriptionSampler extends AbstractSample
     }
 
     public String getUri() {
-        return getPropertyAsString(StompOverSockJsConnectionSubscriptionSamplerGuiPanelProperties.URI.name());
+        return getPropertyAsString(StompOverSockJsConsumerSamplerGuiPanelProperties.URI.name());
     }
 
     public void setUri(String uri) {
-        setProperty(StompOverSockJsConnectionSubscriptionSamplerGuiPanelProperties.URI.name(), uri);
+        setProperty(StompOverSockJsConsumerSamplerGuiPanelProperties.URI.name(), uri);
     }
 
-    public String getSubscriptionChannel() {
-        return getPropertyAsString(StompOverSockJsConnectionSubscriptionSamplerGuiPanelProperties.SUBSCRIPTION_CHANNEL.name());
+    public String getChannel() {
+        return getPropertyAsString(StompOverSockJsConsumerSamplerGuiPanelProperties.CHANNEL.name());
     }
 
-    public void setSubscriptionChannel(String subscriptionChannel) {
-        setProperty(StompOverSockJsConnectionSubscriptionSamplerGuiPanelProperties.SUBSCRIPTION_CHANNEL.name(), subscriptionChannel);
-    }
-
-    public int getTimeout() {
-        return getPropertyAsInt(StompOverSockJsConnectionSubscriptionSamplerGuiPanelProperties.TIMEOUT.name());
-    }
-
-    public void setTimeout(int timeout) {
-        setProperty(StompOverSockJsConnectionSubscriptionSamplerGuiPanelProperties.TIMEOUT.name(), timeout);
+    public void setChannel(String subscriptionChannel) {
+        setProperty(StompOverSockJsConsumerSamplerGuiPanelProperties.CHANNEL.name(), subscriptionChannel);
     }
 }

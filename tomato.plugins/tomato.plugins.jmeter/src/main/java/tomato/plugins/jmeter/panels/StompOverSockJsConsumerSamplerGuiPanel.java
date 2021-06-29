@@ -1,28 +1,28 @@
 package tomato.plugins.jmeter.panels;
 
 import lombok.Getter;
-import tomato.plugins.jmeter.properties.StompOverSockJsConnectionSubscriptionSamplerGuiPanelProperties;
+import tomato.plugins.jmeter.properties.StompOverSockJsConsumerSamplerGuiPanelProperties;
 import tomato.plugins.jmeter.utils.GuiUtils;
 
 import javax.swing.*;
 import java.awt.*;
 
 @Getter
-public class StompOverSockJsConnectionSubscriptionSamplerGuiPanel extends JPanel {
+public class StompOverSockJsConsumerSamplerGuiPanel extends JPanel {
     private JTextField uri;
-    private JTextField subscriptionChannel;
+    private JTextField channel;
     private JSpinner timeout;
 
-    public StompOverSockJsConnectionSubscriptionSamplerGuiPanel() {
+    public StompOverSockJsConsumerSamplerGuiPanel() {
         initComponents();
     }
 
     private void initComponents() {
         uri = new JTextField();
-        GuiUtils.addPlaceHolder(StompOverSockJsConnectionSubscriptionSamplerGuiPanelProperties.URI.getPlaceHolder(), uri);
+        GuiUtils.addPlaceHolder(StompOverSockJsConsumerSamplerGuiPanelProperties.URI.getPlaceHolder(), uri);
 
-        subscriptionChannel = new JTextField();
-        GuiUtils.addPlaceHolder(StompOverSockJsConnectionSubscriptionSamplerGuiPanelProperties.SUBSCRIPTION_CHANNEL.getPlaceHolder(), subscriptionChannel);
+        channel = new JTextField();
+        GuiUtils.addPlaceHolder(StompOverSockJsConsumerSamplerGuiPanelProperties.CHANNEL.getPlaceHolder(), channel);
 
         var spinnerNumberModule = new SpinnerNumberModel(60, 60, 1800, 10);
         timeout = new JSpinner(spinnerNumberModule);
@@ -34,13 +34,13 @@ public class StompOverSockJsConnectionSubscriptionSamplerGuiPanel extends JPanel
     private LayoutManager createLayout() {
         var layout = new GroupLayout(this);
 
-        var uriLabel = new JLabel(StompOverSockJsConnectionSubscriptionSamplerGuiPanelProperties.URI.getLabel());
+        var uriLabel = new JLabel(StompOverSockJsConsumerSamplerGuiPanelProperties.URI.getLabel());
         uriLabel.setLabelFor(uri);
 
-        var subscriptionChannelLabel = new JLabel(StompOverSockJsConnectionSubscriptionSamplerGuiPanelProperties.SUBSCRIPTION_CHANNEL.getLabel());
-        subscriptionChannelLabel.setLabelFor(subscriptionChannel);
+        var channelLabel = new JLabel(StompOverSockJsConsumerSamplerGuiPanelProperties.CHANNEL.getLabel());
+        channelLabel.setLabelFor(channel);
 
-        var timeoutLabel = new JLabel(StompOverSockJsConnectionSubscriptionSamplerGuiPanelProperties.TIMEOUT.getLabel());
+        var timeoutLabel = new JLabel(StompOverSockJsConsumerSamplerGuiPanelProperties.TIMEOUT.getLabel());
         timeoutLabel.setLabelFor(timeoutLabel);
 
         layout.setHorizontalGroup(
@@ -54,9 +54,9 @@ public class StompOverSockJsConnectionSubscriptionSamplerGuiPanel extends JPanel
                         )
                         .addGroup(
                                 layout.createSequentialGroup()
-                                        .addComponent(subscriptionChannelLabel)
+                                        .addComponent(channelLabel)
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(subscriptionChannel)
+                                        .addComponent(channel)
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         )
                         .addGroup(
@@ -82,9 +82,9 @@ public class StompOverSockJsConnectionSubscriptionSamplerGuiPanel extends JPanel
                         )
                         .addGroup(
                                 layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                        .addComponent(subscriptionChannelLabel)
+                                        .addComponent(channelLabel)
                                         .addComponent(
-                                                subscriptionChannel,
+                                                channel,
                                                 GroupLayout.PREFERRED_SIZE,
                                                 GroupLayout.PREFERRED_SIZE,
                                                 GroupLayout.PREFERRED_SIZE
