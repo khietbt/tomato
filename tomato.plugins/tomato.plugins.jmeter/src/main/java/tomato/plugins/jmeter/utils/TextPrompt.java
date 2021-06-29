@@ -1,4 +1,4 @@
-package tomato.plugins.stompoversockjssamplers.extended;
+package tomato.plugins.jmeter.utils;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -19,7 +19,7 @@ import java.awt.event.FocusListener;
  * of the parent text component. You are free to change the properties after
  * class construction.
  */
-public class TextPrompt extends JLabel
+class TextPrompt extends JLabel
         implements FocusListener, DocumentListener {
     private final JTextComponent component;
     private final Document document;

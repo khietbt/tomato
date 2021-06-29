@@ -1,16 +1,18 @@
-package tomato.plugins.stompoversockjssamplers.opener;
+package tomato.plugins.jmeter.guis;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.jmeter.samplers.gui.AbstractSamplerGui;
 import org.apache.jmeter.testelement.TestElement;
+import tomato.plugins.jmeter.panels.UriPanel;
+import tomato.plugins.jmeter.samplers.StompOverSockJsConnectionOpeningSampler;
 
 import java.awt.*;
 
 @Slf4j
-public class Gui extends AbstractSamplerGui {
-    private Panel panel;
+public class StompOverSockJsConnectionOpeningGui extends AbstractSamplerGui {
+    private UriPanel uriPanel;
 
-    public Gui() {
+    public StompOverSockJsConnectionOpeningGui() {
         initComponents();
 
         setLayout(new BorderLayout());
@@ -18,11 +20,11 @@ public class Gui extends AbstractSamplerGui {
 
         add(makeTitlePanel(), BorderLayout.NORTH);
 
-        add(panel, BorderLayout.CENTER);
+        add(uriPanel, BorderLayout.CENTER);
     }
 
     private void initComponents() {
-        panel = new Panel();
+        uriPanel = new UriPanel();
     }
 
     /**
@@ -38,7 +40,7 @@ public class Gui extends AbstractSamplerGui {
      */
     @Override
     public String getLabelResource() {
-        return Properties.LABEL_RESOURCE.getLabel();
+        return "Stomp Over SockJS Connection Opening Sampler";
     }
 
     @Override
@@ -67,7 +69,7 @@ public class Gui extends AbstractSamplerGui {
      */
     @Override
     public TestElement createTestElement() {
-        var sampler = new Sampler();
+        var sampler = new StompOverSockJsConnectionOpeningSampler();
 
         configureTestElement(sampler);
 
@@ -105,8 +107,8 @@ public class Gui extends AbstractSamplerGui {
     public void modifyTestElement(TestElement element) {
         super.configureTestElement(element);
 
-        if (element instanceof Sampler sampler) {
-            sampler.setUri(panel.getUri().getText());
+        if (element instanceof StompOverSockJsConnectionOpeningSampler stompOverSockJsConnectionOpeningSampler) {
+            stompOverSockJsConnectionOpeningSampler.setUri(uriPanel.getUri().getText());
         }
     }
 

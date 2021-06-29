@@ -1,4 +1,4 @@
-package tomato.plugins.stompoversockjssamplers.services;
+package tomato.plugins.jmeter.handlers;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -10,10 +10,10 @@ import org.springframework.messaging.simp.stomp.StompSessionHandlerAdapter;
 import java.lang.reflect.Type;
 
 @Slf4j
-public class Handler extends StompSessionHandlerAdapter {
+public class StompOverSockJsHandler extends StompSessionHandlerAdapter {
     private final String uri;
 
-    public Handler(String uri) {
+    public StompOverSockJsHandler(String uri) {
         super();
 
         this.uri = uri;

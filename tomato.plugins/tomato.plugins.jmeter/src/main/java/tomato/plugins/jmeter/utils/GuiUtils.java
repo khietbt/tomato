@@ -1,6 +1,4 @@
-package tomato.plugins.stompoversockjssamplers.utils;
-
-import tomato.plugins.stompoversockjssamplers.extended.TextPrompt;
+package tomato.plugins.jmeter.utils;
 
 import javax.swing.text.JTextComponent;
 import java.awt.*;

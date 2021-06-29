@@ -1,4 +1,4 @@
-package tomato.plugins.stompoversockjssamplers.services;
+package tomato.plugins.jmeter.clients;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -7,16 +7,17 @@ import org.springframework.web.socket.messaging.WebSocketStompClient;
 import org.springframework.web.socket.sockjs.client.RestTemplateXhrTransport;
 import org.springframework.web.socket.sockjs.client.SockJsClient;
 import org.springframework.web.socket.sockjs.client.WebSocketTransport;
+import tomato.plugins.jmeter.handlers.StompOverSockJsHandler;
 
 import java.util.Arrays;
 
 @Slf4j
 @Data
-public class Client {
+public class StompOverSockJsClient {
     private final String uri;
     private WebSocketStompClient client;
 
-    public Client(String uri) {
+    public StompOverSockJsClient(String uri) {
         this.uri = uri;
 
         client = new WebSocketStompClient(
@@ -30,7 +31,7 @@ public class Client {
     }
 
     public void connect() {
-        client.connect(uri, new Handler(uri));
+        client.connect(uri, new StompOverSockJsHandler(uri));
     }
 
     public void close() {

@@ -1,19 +1,20 @@
-package tomato.plugins.stompoversockjssamplers.opener;
+package tomato.plugins.jmeter.samplers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jmeter.samplers.AbstractSampler;
 import org.apache.jmeter.samplers.Entry;
 import org.apache.jmeter.samplers.SampleResult;
-import tomato.plugins.stompoversockjssamplers.services.Client;
+import tomato.plugins.jmeter.clients.StompOverSockJsClient;
+import tomato.plugins.jmeter.properties.UriPanelProperties;
 
 @Slf4j
-public class Sampler extends AbstractSampler {
+public class StompOverSockJsConnectionOpeningSampler extends AbstractSampler {
     /**
      * Obtains statistics about the given Entry, and packages the information
      * into a SampleResult.
      *
-     * @param e the Entry (TODO seems to be unused)
+     * @param e the Entry
      * @return information about the sample
      */
     @Override
@@ -35,7 +36,7 @@ public class Sampler extends AbstractSampler {
             return result;
         }
 
-        var client = new Client(uri);
+        var client = new StompOverSockJsClient(uri);
 
         try {
             client.connect();
@@ -66,10 +67,10 @@ public class Sampler extends AbstractSampler {
     }
 
     public String getUri() {
-        return getPropertyAsString(Properties.URI.name());
+        return getPropertyAsString(UriPanelProperties.URI.name());
     }
 
     public void setUri(String uri) {
-        setProperty(Properties.URI.name(), uri);
+        setProperty(UriPanelProperties.URI.name(), uri);
     }
 }

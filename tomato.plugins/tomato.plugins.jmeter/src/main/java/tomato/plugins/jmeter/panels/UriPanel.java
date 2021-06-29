@@ -1,16 +1,17 @@
-package tomato.plugins.stompoversockjssamplers.opener;
+package tomato.plugins.jmeter.panels;
 
 import lombok.Getter;
-import tomato.plugins.stompoversockjssamplers.utils.GuiUtils;
+import tomato.plugins.jmeter.properties.UriPanelProperties;
+import tomato.plugins.jmeter.utils.GuiUtils;
 
 import javax.swing.*;
 import java.awt.*;
 
 @Getter
-class Panel extends JPanel {
+public class UriPanel extends JPanel {
     private JTextField uri;
 
-    public Panel() {
+    public UriPanel() {
         initComponents();
 
         setBorder(BorderFactory.createTitledBorder("Settings"));
@@ -19,13 +20,13 @@ class Panel extends JPanel {
 
     private void initComponents() {
         uri = new JTextField();
-        GuiUtils.createPlaceHolder(Properties.URI.getPlaceHolder(), uri);
+        GuiUtils.createPlaceHolder(UriPanelProperties.URI.getPlaceHolder(), uri);
     }
 
     private LayoutManager createLayout() {
         var layout = new GroupLayout(this);
 
-        var uriLabel = new JLabel(Properties.URI.getLabel());
+        var uriLabel = new JLabel(UriPanelProperties.URI.getLabel());
         uriLabel.setLabelFor(uri);
 
         layout.setHorizontalGroup(
