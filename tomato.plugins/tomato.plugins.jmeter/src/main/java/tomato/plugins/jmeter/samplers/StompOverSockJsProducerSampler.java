@@ -37,9 +37,21 @@ public class StompOverSockJsProducerSampler extends AbstractSampler {
 
         var client = new StompOverSockJsClient(uri);
 
-        client.connect();
+        try {
+            client.connect();
 
-        client.send(channel, message);
+            client.send(channel, message);
+
+            result.setResponseMessage(String.join("\n", client.getLogs()));
+            result.setSuccessful(true);
+        } catch (Exception exception) {
+            var logs = client.getLogs();
+            logs.add("Error: " + exception.getMessage());
+
+            result.setResponseMessage(String.join("\n", client.getLogs()));
+            result.setSuccessful(false);
+            result.setResponseCode("500");
+        }
 
         result.sampleEnd();
 

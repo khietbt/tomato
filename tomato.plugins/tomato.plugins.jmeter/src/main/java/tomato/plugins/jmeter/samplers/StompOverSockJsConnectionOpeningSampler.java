@@ -1,7 +1,6 @@
 package tomato.plugins.jmeter.samplers;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.jmeter.samplers.AbstractSampler;
 import org.apache.jmeter.samplers.Entry;
 import org.apache.jmeter.samplers.SampleResult;
@@ -28,14 +27,6 @@ public class StompOverSockJsConnectionOpeningSampler extends AbstractSampler {
 
         final String uri = getUri();
 
-        if (StringUtils.isBlank(uri)) {
-            result.setResponseCode("400");
-            result.setSuccessful(false);
-            result.setResponseMessage("URI is missing");
-
-            return result;
-        }
-
         var client = new StompOverSockJsClient(uri);
 
         try {
@@ -43,10 +34,6 @@ public class StompOverSockJsConnectionOpeningSampler extends AbstractSampler {
 
             result.setResponseMessage("Connected successfully!");
             result.setSuccessful(true);
-
-        } catch (IllegalArgumentException exception) {
-            result.setResponseMessage("Wrong TCP scheme, it must be HTTP/HTTPS");
-            result.setSuccessful(false);
         } catch (Exception exception) {
             result.setResponseMessage("Connection refused: " + exception.getMessage());
             result.setSuccessful(false);

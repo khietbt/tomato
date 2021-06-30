@@ -18,10 +18,11 @@ public class StompOverSockJsConsumerSamplerGuiPanel extends JPanel {
     }
 
     private void initComponents() {
-        uri = new JTextField();
+        final String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VyX2lkXCI6MTkyLFwicm9sZXNcIjpbXCJzdHVkZW50XCJdLFwidXNlcm5hbWVcIjpcIjA5MTI5ODUxMjVcIixcImVtYWlsXCI6bnVsbCxcInByaW5jaXBhbFwiOlwiMDkxMjk4NTEyNVwiLFwiYXBwX2lkXCI6XCJsbXMtd2ViXCIsXCJhY2NvdW50X2lkXCI6XCIwZGZmNjdkYi0wNGE1LTQ4ZDItYjkwZS1hMmRjYmQ4OGIwM2ZcIn0iLCJpYXQiOjE2MjUwMjEwNDAsImV4cCI6MTYyNTYyNTgzOX0.YO92Av6CK50E0FPVZJbSOMGLgc5tSWKLCCai4JH9bsk";
+        uri = new JTextField("http://localhost:8082/ws?access_token=" + accessToken);
         GuiUtils.addPlaceHolder(StompOverSockJsConsumerSamplerGuiPanelProperties.URI.getPlaceHolder(), uri);
 
-        channel = new JTextField();
+        channel = new JTextField("/topic/scheduled-LS4T1-4T1");
         GuiUtils.addPlaceHolder(StompOverSockJsConsumerSamplerGuiPanelProperties.CHANNEL.getPlaceHolder(), channel);
 
         var spinnerNumberModule = new SpinnerNumberModel(60, 60, 1800, 10);

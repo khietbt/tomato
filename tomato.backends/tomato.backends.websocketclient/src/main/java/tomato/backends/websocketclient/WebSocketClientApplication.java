@@ -34,7 +34,7 @@ public class WebSocketClientApplication implements CommandLineRunner {
     @SuppressWarnings("all")
     public void run(String... args) throws Exception {
         final String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VyX2lkXCI6MTkyLFwicm9sZXNcIjpbXCJzdHVkZW50XCJdLFwidXNlcm5hbWVcIjpcIjA5MTI5ODUxMjVcIixcImVtYWlsXCI6bnVsbCxcInByaW5jaXBhbFwiOlwiMDkxMjk4NTEyNVwiLFwiYXBwX2lkXCI6XCJsbXMtd2ViXCIsXCJhY2NvdW50X2lkXCI6XCIwZGZmNjdkYi0wNGE1LTQ4ZDItYjkwZS1hMmRjYmQ4OGIwM2ZcIn0iLCJpYXQiOjE2MjUwMjEwNDAsImV4cCI6MTYyNTYyNTgzOX0.YO92Av6CK50E0FPVZJbSOMGLgc5tSWKLCCai4JH9bsk";
-        final String uri = "ws://localhost:8082/ws?access_token=" + accessToken;
+        final String uri = "https://lika-api-backend-services-lika-websocket-service-dev.stg.mikai.tech//ws?access_token=" + accessToken;
 
         log.error("{} is running", applicationName);
 
@@ -53,8 +53,10 @@ public class WebSocketClientApplication implements CommandLineRunner {
         var session = webSocketStompClient.connect(uri, handler).get(10, TimeUnit.SECONDS);
 
 
-        var destination = "/app/chat/private/mikai43";
-        session.send(destination, new ObjectMapper().readTree("{\"sender\":\"xxxx\",\"message\":\"xxxxx\"}"));
+        var channel = "/topic/scheduled-LS4T1-4T1";
+        var destination = channel;
+
+        session.send(destination, new ObjectMapper().readTree("{\"sender\":\"xxxx\",\"content\":\"somethings in the sky\"}"));
 
         log.error("Connected successfully!");
 

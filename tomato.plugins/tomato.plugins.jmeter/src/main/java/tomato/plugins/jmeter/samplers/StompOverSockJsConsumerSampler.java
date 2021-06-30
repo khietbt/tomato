@@ -1,7 +1,6 @@
 package tomato.plugins.jmeter.samplers;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.jmeter.samplers.AbstractSampler;
 import org.apache.jmeter.samplers.Entry;
 import org.apache.jmeter.samplers.SampleResult;
@@ -28,31 +27,32 @@ public class StompOverSockJsConsumerSampler extends AbstractSampler {
         result.sampleStart();
 
         final String uri = getUri();
-        final String subscriptionChannel = getChannel();
+        final String channel = getChannel();
         final int timeout = getTimeout();
 
-        if (StringUtils.isBlank(uri)) {
-            result.setResponseCode("400");
-            result.setSuccessful(false);
-            result.setResponseMessage("URI is missing");
-
-            return result;
-        }
+        log.error("Uri = {}", uri);
+        log.error("Channel = {}", channel);
+        log.error("Timeout = {}", timeout);
 
         var client = new StompOverSockJsClient(uri);
 
         try {
             client.connect();
 
-            result.setResponseMessage("Connected successfully!");
-            result.setSuccessful(true);
+            client.subscribe(channel);
 
-        } catch (IllegalArgumentException exception) {
-            result.setResponseMessage("Wrong TCP scheme, it must be HTTP/HTTPS");
-            result.setSuccessful(false);
+            Thread.sleep(timeout * 1000L);
+
+            result.setResponseMessage(String.join("\n", client.getLogs()));
+            result.setSuccessful(true);
         } catch (Exception exception) {
-            result.setResponseMessage("Connection refused: " + exception.getMessage());
+            var logs = client.getLogs();
+            logs.add("ERROR: " + exception.getMessage());
+
             result.setSuccessful(false);
+            result.setResponseMessage(String.join("\n", logs));
+        } finally {
+            client.disconnect();
         }
 
         result.sampleEnd();
@@ -60,10 +60,6 @@ public class StompOverSockJsConsumerSampler extends AbstractSampler {
         return result;
     }
 
-    /**
-     * Called when the test element is removed from the test plan.
-     * Must not throw any exception
-     */
     @Override
     public void removed() {
         super.removed();
@@ -93,3 +89,4 @@ public class StompOverSockJsConsumerSampler extends AbstractSampler {
         setProperty(StompOverSockJsConsumerSamplerGuiPanelProperties.TIMEOUT.name(), timeout);
     }
 }
+
