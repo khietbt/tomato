@@ -18,13 +18,13 @@ public class StompOverSockJsProducerSamplerGuiPanel extends JPanel {
     }
 
     private void initComponents() {
-        uri = new JTextField();
+        uri = new JTextField("http://localhost:8082/ws?access_token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VyX2lkXCI6MTkyLFwicm9sZXNcIjpbXCJzdHVkZW50XCJdLFwidXNlcm5hbWVcIjpcIjA5MTI5ODUxMjVcIixcImVtYWlsXCI6bnVsbCxcInByaW5jaXBhbFwiOlwiMDkxMjk4NTEyNVwiLFwiYXBwX2lkXCI6XCJsbXMtd2ViXCIsXCJhY2NvdW50X2lkXCI6XCIwZGZmNjdkYi0wNGE1LTQ4ZDItYjkwZS1hMmRjYmQ4OGIwM2ZcIn0iLCJpYXQiOjE2MjUwMjEwNDAsImV4cCI6MTYyNTYyNTgzOX0.YO92Av6CK50E0FPVZJbSOMGLgc5tSWKLCCai4JH9bsk");
         GuiUtils.addPlaceHolder(StompOverSockJsProducerSamplerGuiPanelProperties.URI.getPlaceHolder(), uri);
 
-        channel = new JTextField();
+        channel = new JTextField("/app/chat/private/mikai43");
         GuiUtils.addPlaceHolder(StompOverSockJsProducerSamplerGuiPanelProperties.CHANNEL.getPlaceHolder(), channel);
 
-        message = new JTextArea();
+        message = new JTextArea("{\"sender\":\"xxxx\",\"message\":\"xxxxx\"}");
         GuiUtils.addPlaceHolder(StompOverSockJsProducerSamplerGuiPanelProperties.MESSAGE.getPlaceHolder(), message);
 
         setBorder(BorderFactory.createTitledBorder("Settings"));

@@ -40,6 +40,7 @@ public class StompOverSockJsHandler extends StompSessionHandlerAdapter {
             StompHeaders connectedHeaders
     ) {
         log.info("Connected to {} successfully", uri);
+//        session.setAutoReceipt(true);
     }
 
     @Override

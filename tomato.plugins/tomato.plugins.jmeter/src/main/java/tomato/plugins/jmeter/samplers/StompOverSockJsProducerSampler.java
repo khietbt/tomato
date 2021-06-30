@@ -1,12 +1,11 @@
 package tomato.plugins.jmeter.samplers;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.jmeter.samplers.AbstractSampler;
 import org.apache.jmeter.samplers.Entry;
 import org.apache.jmeter.samplers.SampleResult;
 import tomato.plugins.jmeter.clients.StompOverSockJsClient;
-import tomato.plugins.jmeter.properties.StompOverSockJsConsumerSamplerGuiPanelProperties;
+import tomato.plugins.jmeter.properties.StompOverSockJsProducerSamplerGuiPanelProperties;
 
 @Slf4j
 @SuppressWarnings("unused")
@@ -27,59 +26,52 @@ public class StompOverSockJsProducerSampler extends AbstractSampler {
 
         result.sampleStart();
 
+        /* Inputs. */
         final String uri = getUri();
-        final String subscriptionChannel = getChannel();
+        final String channel = getChannel();
+        final String message = getMessage();
 
-        if (StringUtils.isBlank(uri)) {
-            result.setResponseCode("400");
-            result.setSuccessful(false);
-            result.setResponseMessage("URI is missing");
-
-            return result;
-        }
+        log.debug("Input uri = {}", uri);
+        log.debug("Channel = {}", channel);
+        log.debug("Message = {}", message);
 
         var client = new StompOverSockJsClient(uri);
 
-        try {
-            client.connect();
+        client.connect();
 
-            result.setResponseMessage("Connected successfully!");
-            result.setSuccessful(true);
-        } catch (IllegalArgumentException exception) {
-            result.setResponseMessage("Wrong TCP scheme, it must be HTTP/HTTPS");
-            result.setSuccessful(false);
-        } catch (Exception exception) {
-            result.setResponseMessage("Connection refused: " + exception.getMessage());
-            result.setSuccessful(false);
-        }
+        client.send(channel, message);
 
         result.sampleEnd();
 
         return result;
     }
 
-    /**
-     * Called when the test element is removed from the test plan.
-     * Must not throw any exception
-     */
     @Override
     public void removed() {
         super.removed();
     }
 
     public String getUri() {
-        return getPropertyAsString(StompOverSockJsConsumerSamplerGuiPanelProperties.URI.name());
+        return getPropertyAsString(StompOverSockJsProducerSamplerGuiPanelProperties.URI.name());
     }
 
     public void setUri(String uri) {
-        setProperty(StompOverSockJsConsumerSamplerGuiPanelProperties.URI.name(), uri);
+        setProperty(StompOverSockJsProducerSamplerGuiPanelProperties.URI.name(), uri);
     }
 
     public String getChannel() {
-        return getPropertyAsString(StompOverSockJsConsumerSamplerGuiPanelProperties.CHANNEL.name());
+        return getPropertyAsString(StompOverSockJsProducerSamplerGuiPanelProperties.CHANNEL.name());
     }
 
-    public void setChannel(String subscriptionChannel) {
-        setProperty(StompOverSockJsConsumerSamplerGuiPanelProperties.CHANNEL.name(), subscriptionChannel);
+    public void setChannel(String channel) {
+        setProperty(StompOverSockJsProducerSamplerGuiPanelProperties.CHANNEL.name(), channel);
+    }
+
+    public String getMessage() {
+        return getPropertyAsString(StompOverSockJsProducerSamplerGuiPanelProperties.MESSAGE.name());
+    }
+
+    public void setMessage(String message) {
+        setProperty(StompOverSockJsProducerSamplerGuiPanelProperties.MESSAGE.name(), message);
     }
 }

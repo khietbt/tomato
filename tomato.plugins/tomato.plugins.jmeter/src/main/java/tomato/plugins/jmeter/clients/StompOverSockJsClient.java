@@ -1,8 +1,10 @@
 package tomato.plugins.jmeter.clients;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.simp.stomp.StompSession;
 import org.springframework.web.socket.client.standard.StandardWebSocketClient;
 import org.springframework.web.socket.messaging.WebSocketStompClient;
@@ -34,6 +36,8 @@ public class StompOverSockJsClient {
                         )
                 )
         );
+
+        client.setMessageConverter(new MappingJackson2MessageConverter());
     }
 
     @SneakyThrows
@@ -45,8 +49,11 @@ public class StompOverSockJsClient {
         stompSession.subscribe(subscriptionChannel, new StompOverSockJsSubscriptionHandler(subscriptionChannel));
     }
 
+    @SneakyThrows
     public void send(String channel, String message) {
-        stompSession.send(channel, "Hello world");
+        log.error("stompSession = {}", stompSession);
+        stompSession.send(channel, new ObjectMapper().readTree(message));
+        log.error("Sent a message channel=[{}] with payload=[{}]", channel, message);
     }
 
     public void close() {

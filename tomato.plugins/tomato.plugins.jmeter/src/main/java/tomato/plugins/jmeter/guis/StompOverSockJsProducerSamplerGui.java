@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.jmeter.samplers.gui.AbstractSamplerGui;
 import org.apache.jmeter.testelement.TestElement;
 import tomato.plugins.jmeter.panels.StompOverSockJsProducerSamplerGuiPanel;
-import tomato.plugins.jmeter.samplers.StompOverSockJsConnectionOpeningSampler;
 import tomato.plugins.jmeter.samplers.StompOverSockJsProducerSampler;
 
 import java.awt.*;
@@ -39,7 +38,7 @@ public class StompOverSockJsProducerSamplerGui extends AbstractSamplerGui {
 
     @Override
     public TestElement createTestElement() {
-        var sampler = new StompOverSockJsConnectionOpeningSampler();
+        var sampler = new StompOverSockJsProducerSampler();
 
         configureTestElement(sampler);
 
@@ -56,6 +55,9 @@ public class StompOverSockJsProducerSamplerGui extends AbstractSamplerGui {
             );
             stompOverSockJsProducerSampler.setChannel(
                     stompOverSockJsProducerSamplerGuiPanel.getChannel().getText()
+            );
+            stompOverSockJsProducerSampler.setMessage(
+                    stompOverSockJsProducerSamplerGuiPanel.getMessage().getText()
             );
         }
     }
