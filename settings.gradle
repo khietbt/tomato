@@ -1,8 +1,0 @@
-rootProject.name = "tomato"
-
-fileTree('.') {
-    include '**/build.gradle'
-    exclude 'build.gradle'
-}.forEach() {
-    include relativePath(it.parent).replace(File.separator, ':')
-}
