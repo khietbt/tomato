@@ -14,10 +14,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>tomato.backends.adminservice</module>
-        <module>tomato.backends.configservice</module>
-        <module>tomato.backends.discoveryservice</module>
-        <module>tomato.backends.gatewayservice</module>
         <module>tomato.backends.productservice</module>
         <module>tomato.backends.userservice</module>
         <module>tomato.backends.websocketclient</module>

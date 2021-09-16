@@ -12,11 +12,38 @@
 
     <properties>
         <revision>1.0.0-RELEASE</revision>
+        <spring-boot-version>2.5.4</spring-boot-version>
+        <spring-cloud-version>2020.0.3</spring-cloud-version>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <modules>
         <module>tomato.backends</module>
         <module>tomato.configurations</module>
         <module>tomato.plugins</module>
+        <module>tomato-config-service</module>
+        <module>tomato-discovery-service</module>
+        <module>tomato-gateway-service</module>
+        <module>tomato-admin-service</module>
     </modules>
 </project>
