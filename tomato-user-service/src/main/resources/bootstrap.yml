@@ -1,10 +1,10 @@
 spring:
   application:
-    name: tomato.backends.userservice
+    name: tomato-user-service
   datasource:
     url: jdbc:mysql://localhost/productservice?createDatabaseIfNotExist=true&characterEncoding=utf8
-    username: lika_dev
-    password: Vuanh090317
+    username: admin
+    password: admin
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     generate-ddl: false

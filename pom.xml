@@ -45,5 +45,6 @@
         <module>tomato-discovery-service</module>
         <module>tomato-gateway-service</module>
         <module>tomato-admin-service</module>
+        <module>tomato-user-service</module>
     </modules>
 </project>

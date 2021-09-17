@@ -10,9 +10,9 @@ tomato
 \__ tomato-discovery-service
 \__ tomato-gateway-service
 \__ tomato-admin-service
+\__ tomato-user-service
 \__ tomato.backends
 |        \__ tomato.backends.productservice
-|        \__ tomato.backends.userservice
 \__ tomato.configurations
 ```
 
@@ -25,9 +25,11 @@ git clone --recursive git@github.com:khietbt/tomato.git && cd tomato && git subm
 Note: Repositories are public, but a private key linked to a GitHub account is necessary.
 
 ## Decisions
+
 ### Config First Boostrap
 
-Discovery First Bootstrap forces others services to wait until finishing the registration of the config service with eureka.
+Discovery First Bootstrap forces others services to wait until finishing the registration of the config service with
+eureka.
 
 It is not a good experience.
 

@@ -14,8 +14,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>tomato.backends.productservice</module>
-        <module>tomato.backends.userservice</module>
         <module>tomato.backends.websocketclient</module>
         <module>tomato.backends.websocketservice</module>
     </modules>

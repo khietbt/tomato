@@ -9,32 +9,48 @@ databaseChangeLog:
             columns:
               - column:
                   name: key
-                  type: varchar(256)
+                  type: VARCHAR(256)
                   constraints:
                     primaryKey: true
                     nullable: false
                     primaryKeyName: pk_properties
               - column:
                   name: value
-                  type: varchar(1024)
+                  type: VARCHAR(1024)
               - column:
                   name: application
-                  type: varchar(256)
+                  type: VARCHAR(256)
                   constraints:
                     primaryKey: true
                     nullable: false
                     primaryKeyName: pk_properties
               - column:
                   name: profile
-                  type: varchar(32)
+                  type: VARCHAR(32)
                   constraints:
                     primaryKey: true
                     nullable: false
                     primaryKeyName: pk_properties
               - column:
                   name: label
-                  type: varchar(32)
+                  type: VARCHAR(32)
                   constraints:
                     primaryKey: true
                     nullable: false
                     primaryKeyName: pk_properties
+              - column:
+                  name: created_by
+                  type: VARCHAR(256)
+                  defaultValue: anonymouss
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP
+              - column:
+                  name: updated_by
+                  type: VARCHAR(256)
+                  defaultValue: anonymous
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP

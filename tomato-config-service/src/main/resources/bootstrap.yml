@@ -20,7 +20,7 @@ spring:
       server:
         git:
           uri: ${CONFIG_SERVICE_GIT_URI:git@github.com:khietbt/tomato.git}
-#          private-key: /path/to/private-key
+          #          private-key: /path/to/private-key
           order: 1
           search-paths: tomato.configurations
         jdbc:
@@ -29,7 +29,7 @@ spring:
         bootstrap: true # Properties from repo will be loaded and used to overwrite entries in this boostrap file, however it makes this service start slowly.
   liquibase:
     enabled: true
-#    change-log: classpath:/db/changelog/db.changelog-master.yaml
+  #    change-log: classpath:/db/changelog/db.changelog-master.yaml
   profiles:
     active: jdbc, git
 server:

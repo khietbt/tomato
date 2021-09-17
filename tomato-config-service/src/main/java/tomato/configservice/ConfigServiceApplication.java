@@ -21,6 +21,6 @@ public class ConfigServiceApplication implements CommandLineRunner {
     @Override
     @SuppressWarnings("all")
     public void run(String... args) throws Exception {
-        log.error("{} is running", applicationName);
+        log.info("{} is running", applicationName);
     }
 }

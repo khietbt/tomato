@@ -1,6 +1,6 @@
 spring:
   application:
-    name: tomato.backends.userservice
+    name: tomato-user-service
   datasource:
     url: jdbc:mysql://localhost/productservice?createDatabaseIfNotExist=true&characterEncoding=utf8
     username: lika_dev
