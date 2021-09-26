@@ -112,3 +112,4 @@ gradle
 dependency-reduced-pom.xml
 .vscode
 /.jpb/
+yarn.lock
