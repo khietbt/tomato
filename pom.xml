@@ -12,8 +12,8 @@
 
     <properties>
         <revision>1.0.0-RELEASE</revision>
-        <spring-boot-version>2.5.4</spring-boot-version>
-        <spring-cloud-version>2020.0.3</spring-cloud-version>
+        <spring-boot-version>2.6.4</spring-boot-version>
+        <spring-cloud-version>2021.0.1</spring-cloud-version>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
     </properties>
